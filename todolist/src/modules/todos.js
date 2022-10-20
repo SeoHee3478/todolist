@@ -9,7 +9,7 @@ export const changeInput = (input) => ({
   type: CHANGE_INPUT,
   input,
 });
-let id = 3;
+let id = 1;
 export const insert = (text) => ({
   type: INSERT,
   todo: {
@@ -32,18 +32,7 @@ export const remove = (id) => ({
 //초기 상태 및 리듀서 함수 만들기
 const initialState = {
   input: "",
-  todos: [
-    {
-      id: 1,
-      text: "면접 스터디 준비하기",
-      done: true,
-    },
-    {
-      id: 2,
-      text: "구현 프로젝트 완료하기",
-      done: false,
-    },
-  ],
+  todos: [],
 };
 
 function todos(state = initialState, action) {

@@ -29,7 +29,11 @@ const Todos = ({
 }) => {
   const onSubmit = (e) => {
     e.preventDefault();
-    onInsert(input);
+    if (todos.length < 5) {
+      onInsert(input);
+    } else {
+      return alert("ToDo List는 최대 5개까지만 생성이 가능합니다.");
+    }
     onChangeInput(""); //등록 후 인풋 초기화
   };
   const onChange = (e) => onChangeInput(e.target.value);
