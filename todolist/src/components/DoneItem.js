@@ -17,7 +17,7 @@ const DoneDeleteButton = styled.button`
   background-color: transparent;
   padding: 10px 15px;
   color: #cb454a;
-  font-size: 12px;
+  font-size: 0.8rem;
   font-weight: 600;
   cursor: pointer;
   :hover {
@@ -33,6 +33,7 @@ const DoneItem = ({ todo, onRemove }) => {
       <TextWrap>
         <DoneText>{todo.text}</DoneText>
       </TextWrap>
+      {/* 삭제 버튼 클릭 시 onRemove함수 실행하여 해당 한 일 목록 삭제하기 */}
       <DoneDeleteButton onClick={() => onRemove(todo.id)}>
         삭제
       </DoneDeleteButton>

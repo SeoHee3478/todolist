@@ -3,6 +3,7 @@ import styled from "styled-components";
 import TodoItem from "./TodoItem";
 import DoneItem from "./DoneItem";
 
+//TodoList DoneList 공통 스타일
 const TodoWrap = styled.main`
   display: flex;
   justify-content: space-around;
@@ -36,6 +37,7 @@ const ListLi = styled.li`
   justify-content: space-between;
 `;
 
+//등록 기능 스타일
 const Form = styled.form`
   margin-top: 50px;
   display: flex;
@@ -49,6 +51,7 @@ const Input = styled.input`
   width: 60%;
   padding: 10px;
 `;
+
 const AddButton = styled.button`
   border: none;
   border-radius: 5px;
@@ -73,25 +76,29 @@ const Todos = ({
 }) => {
   const onSubmit = (e) => {
     e.preventDefault();
-    {
-      if (input.length == 0) {
-        return alert("할 일을 입력하세요.");
-      } else if (todos.length >= 5) {
-        return alert("할 일 목록은 최대 5개까지만 생성이 가능합니다.");
-      } else {
-        onInsert(input);
-      }
+
+    //할 일 입력창에 아무것도 입력하지 않고 등록 버튼 클릭 시
+    if (input.length == 0) {
+      return alert("할 일을 입력하세요.");
+      //할 일 목록이 5개 이상일 때 새로운 목록 추가 할 때
+    } else if (todos.length >= 5) {
+      return alert("할 일 목록은 최대 5개까지만 생성이 가능합니다.");
+    } else {
+      onInsert(input);
     }
+
     onChangeInput(""); //등록 후 인풋 초기화
   };
   const onChange = (e) => onChangeInput(e.target.value);
   return (
     <TodoWrap>
+      {/* TodoList */}
       <ListWrap>
         <TodoHeader>Todo</TodoHeader>
         <ListUl>
+          {/* TodoList에는 할 일 목록의 done이 false인 todos만 보여주기*/}
           {todos
-            .filter((todo) => todo.done == false)
+            .filter((todo) => todo.done === false)
             .map((todo) => (
               <ListLi key={todo.id}>
                 <TodoItem
@@ -103,6 +110,7 @@ const Todos = ({
               </ListLi>
             ))}
         </ListUl>
+        {/* 할 일 등록 기능 */}
         <Form onSubmit={onSubmit}>
           <Input
             placeholder="할 일을 입력해주세요."
@@ -112,11 +120,13 @@ const Todos = ({
           <AddButton type="submit">등록</AddButton>
         </Form>
       </ListWrap>
+      {/* DoneList */}
       <ListWrap>
         <DoneHeader>Done</DoneHeader>
         <ListUl>
+          {/* DoneList에는 할 일 목록의 done이 true인 todos만 보여주기*/}
           {todos
-            .filter((todo) => todo.done == true)
+            .filter((todo) => todo.done === true)
             .map((todo) => (
               <ListLi key={todo.id}>
                 <DoneItem todo={todo} key={todo.id} onRemove={onRemove} />

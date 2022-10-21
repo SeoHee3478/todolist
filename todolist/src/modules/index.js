@@ -6,4 +6,3 @@ const rootReducer = combineReducers({
 });
 
 export default rootReducer;
-//없어도 될 듯
