@@ -4,6 +4,10 @@ redux를 활용한 todolist 입니다.
 
 배포 link: https://todolist-puce.vercel.app/
 
+## 화면 미리보기
+
+![Todolist](https://user-images.githubusercontent.com/78894678/197206302-274deb7b-99c9-4a2b-84dc-adc658ed0512.gif)
+
 ## 프로젝트 요구사항 및 진행 상황
 
 store를 활용한 todolist 입니다.
