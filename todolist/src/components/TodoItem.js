@@ -4,7 +4,7 @@ import styled from "styled-components";
 const TextWrap = styled.div`
   background-color: white;
   border-radius: 3px;
-  width: 60%;
+  width: 180px;
   padding: 10px;
 `;
 

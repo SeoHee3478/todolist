@@ -11,6 +11,7 @@ const TodoWrap = styled.main`
   @media screen and (max-width: 768px) {
     flex-direction: column;
   }
+  font-family: "Spoqa Han Sans Neo";
 `;
 
 const ListWrap = styled.section`
@@ -48,7 +49,7 @@ const Input = styled.input`
   background-color: white;
   border: none;
   border-radius: 3px;
-  width: 60%;
+  width: 180px;
   padding: 10px;
 `;
 
